@@ -159,7 +159,7 @@ public class ZebreExtension {
     	// Calcul de toutes les solutions
     	System.out.println("\n\n*** Autres solutions ***");        
         while(model.getSolver().solve()) {    	
-            System.out.println("Sol "+ model.getSolver().getSolutionCount()+"\n"+model);
+            System.out.println("Solution"+ model.getSolver().getSolutionCount()+"\n"+model);
 	    }
 	    
  

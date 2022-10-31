@@ -13,12 +13,14 @@ public class nReine {
 
 
         //Création des variables
-        IntVar [] t = model.intVarArray("ReineColonne",n,0,n-1);
-        model.allDifferent(t).post();
+        IntVar [] t = model.intVarArray("Reine",n,1,n*n);
+        //on crée un tableau de n variables "Reine_i" qui prennent comme valeur une case de l'échiquier
+        
 
         //Création des contraintes
 
-
+        model.allDifferent(t).post(); //unicité des reines, pas sur une même case
+        // pour interdire qu'elles soient sur la même ligne, 
 
 
 

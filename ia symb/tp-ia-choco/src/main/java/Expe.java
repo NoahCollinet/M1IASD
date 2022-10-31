@@ -4,6 +4,8 @@ import java.io.FileReader;
 import org.chocosolver.solver.Model;
 import org.chocosolver.solver.constraints.extension.Tuples;
 import org.chocosolver.solver.variables.IntVar;
+import org.chocosolver.solver.Solution;
+
 
 public class Expe {
 
@@ -34,8 +36,8 @@ public class Expe {
 		String ficName = "bench.txt";
 		String fic2 = "benchInsat.txt";
 		String fic3 = "benchSatisf.txt";
-		int nbRes=3;
-		BufferedReader readFile = new BufferedReader(new FileReader(fic2));
+		int nbRes=3; //ne doit pas changer pour sat et insat car on a toujours 3 réseaux 
+		BufferedReader readFile = new BufferedReader(new FileReader(ficName));
 		for(int nb=1 ; nb<=nbRes; nb++) {
 			Model model=lireReseau(readFile);
 			if(model==null) {
@@ -43,6 +45,19 @@ public class Expe {
 				return;
 			}
 			System.out.println("Réseau lu "+nb+" :\n"+model+"\n\n");
+
+			// Calcul de toutes les solutions
+    	System.out.println("\n*** Les  solutions ***");
+		Solution Sol=new Solution(model);    
+        while(model.getSolver().solve()) {    	
+            Sol.record();
+	    }
+	    
+ 
+        
+        // Affichage de l'ensemble des caractéristiques de résolution
+      	System.out.println("\n\n*** Bilan ***");        
+        model.getSolver().printStatistics();
 		}
 		return;	
 	}
