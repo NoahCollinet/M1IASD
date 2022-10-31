@@ -1,0 +1,15 @@
+-----------------				-------------------------
+|  IDictionary	|				| AbstractDictionary  	|
+-----------------				-------------------------
+| 	-get		|				| keys  tableau d'objets|
+|	-put		| /_ _ _ _ _ _ _| values				|
+|	-isEmpty	| \				-------------------------
+|	-contains	|				|  get(__)				|
+|	-size		|				|  put(__)				|
+-----------------				|  isEmpty(__)			|
+								| ...					|
+
+affectation polymorphique :	lorsque des classes filles définies
+par extends héritent des méthodes de la classe mère	et peuvent
+les redéfinir (après utilisation d'@override)			
+			
