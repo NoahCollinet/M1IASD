@@ -10,9 +10,9 @@
 // d'entiers OUT : Nil RESULT : Initialise le tableau de sommets à la bonne
 // taille et remplit le tableau d'arrêtes
 
-void parse(FILE *file, int **vertices, int (**edges)[2]) {
+void parse(FILE *file, int **vertices, int (**edges)[2], int **props) {
   char c;
-  int *v, (*ed)[2];
+  int *v, (*ed)[2], nbSommets, nbArretes;
   int e = 0;
 
   while ((c = fgetc(file)) != EOF) {
@@ -45,6 +45,8 @@ void parse(FILE *file, int **vertices, int (**edges)[2]) {
       num[i] = '\0';
 
       // Quand on a notre nombre de sommets on alloue la mémoire dynamiquement
+      printf("%d\n", atoi(num));
+      nbSommets = atoi(num);
       v = malloc(atoi(num) * sizeof(int));
 
       if (!ed) {
@@ -66,6 +68,7 @@ void parse(FILE *file, int **vertices, int (**edges)[2]) {
       num[i] = '\0';
 
       printf("%d\n", atoi(num));
+      nbArretes = atoi(num);
       ed = malloc(sizeof(int[atoi(num)][2]));
 
       if (!v) {
@@ -120,10 +123,14 @@ void parse(FILE *file, int **vertices, int (**edges)[2]) {
   }
   *vertices = v;
   *edges = ed;
+
+
+  int res[2] = {nbSommets, nbArretes};
+  *props = res;
 }
 
 /*
- * Exemple d'utilisation de la procédure parse
+ * Exemple d'utilisation de la procédure parse */
 int main(int argc, char *argv[]) {
 
   if (argc != 2) {
@@ -133,15 +140,16 @@ int main(int argc, char *argv[]) {
 
   FILE *file = fopen(argv[1], "r");
 
-  int *vertices, (*edges)[2]; // Création des tableaux
+  int *vertices, (*edges)[2], *props; // Création des tableaux
+  parse(file, &vertices, &edges, &props); // Allocation et initialisation des tableaux
 
-  parse(file, &vertices, &edges); // Allocation et initialisation des tableaux
-
-  for (size_t n = 0; n < 21633; ++n) { // Affichage des arrêtes
+  /* for (size_t n = 0; n < props[1]; ++n) { // Affichage des arrêtes
     printf("%d -> ", edges[n][0]);
     printf("%d\n", edges[n][1]);
-  }
+  } 
+  */
 
+//printf("%d", vertices);
   // Désallocation des pointeurs
   free(file);
   free(edges);
@@ -149,4 +157,3 @@ int main(int argc, char *argv[]) {
 
   return 0;
 }
-*/
