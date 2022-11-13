@@ -3,6 +3,6 @@
 
 #include <stdio.h>
 
-void parse(FILE *, int **, int (**)[2]);
+void parse(FILE *, int **, int (**)[2], int **);
 
 #endif // !PARSER_H_INCLUDED

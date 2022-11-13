@@ -129,8 +129,8 @@ void parse(FILE *file, int **vertices, int (**edges)[2], int **props) {
   *props = res;
 }
 
-/*
- * Exemple d'utilisation de la procédure parse */
+
+/* Exemple d'utilisation de la procédure parse 
 int main(int argc, char *argv[]) {
 
   if (argc != 2) {
@@ -143,11 +143,11 @@ int main(int argc, char *argv[]) {
   int *vertices, (*edges)[2], *props; // Création des tableaux
   parse(file, &vertices, &edges, &props); // Allocation et initialisation des tableaux
 
-  /* for (size_t n = 0; n < props[1]; ++n) { // Affichage des arrêtes
+    for (size_t n = 0; n < props[1]; ++n) { // Affichage des arrêtes
     printf("%d -> ", edges[n][0]);
     printf("%d\n", edges[n][1]);
   } 
-  */
+  
 
 //printf("%d", vertices);
   // Désallocation des pointeurs
@@ -156,4 +156,7 @@ int main(int argc, char *argv[]) {
   free(vertices);
 
   return 0;
-}
+  }*/
+  
+
+

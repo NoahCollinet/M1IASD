@@ -51,11 +51,10 @@ int main(int argc , char *argv[] ){
   int *vertices, (*edges)[2], *props; // Création des tableaux
   parse(file, &vertices, &edges, &props); // Allocation et initialisation des tableaux
 
-   /*
    for (size_t n = 0; n < props[1]; ++n) { // Affichage des arrêtes
     printf("%d -> ", edges[n][0]);
     printf("%d\n", edges[n][1]);
-  } */
+  } 
 
   int serverSocket, newSocket;
   struct sockaddr_in serverAddr;
@@ -82,9 +81,9 @@ int main(int argc , char *argv[] ){
   //Bind the address struct to the socket 
   bind(serverSocket, (struct sockaddr *) &serverAddr, sizeof(serverAddr));
 
-   
+  
 
-  //Listen on the socket, with max connection requests queued = nombre d'arêtes  
+  //Listen on the socket, with 40 max connection requests queued 
   if(listen(serverSocket,props[1])==0)
     printf("Listening\n");
   else
