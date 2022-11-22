@@ -1,16 +1,17 @@
 # Graphe de processus connectés
 
-**Lancement **
+**Lancement**
 
 
 Voici le guide d'utilisation de notre algorithme de génération de graphe. 
-En premier lieu, on a besoin de lancer un parseur conçu spécialement pour le script avant de lancer celui-ci, afin d'avoir le nombre de sockets à allouer. \\
-On exécute ce parseur avec la commande suivante :
+En premier lieu, on a besoin de lancer un parseur conçu spécialement pour le script avant de lancer celui-ci, afin d'avoir le nombre de sockets à allouer.
+
+On exécute ce parseur avec la commande suivante :  
 ``gcc parseurscript.c -o parserExe ``
 
 Comme expliqué ci-dessus on peut récupérer juste le nombre de sommets pour le script.
 
-Ensuite on lance le script qui permet de créer le graphe :
+Ensuite on lance le script qui permet de créer le graphe :  
 ``python3 scriptAnneau.py ``
 
 Le script va d'abord compiler nos fichiers. 
