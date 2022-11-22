@@ -1,4 +1,4 @@
-// PROBLEME DE COLORATION DE SOMMETS
+// PROJET : PROBLEME DE COLORATION DE SOMMETS
 // Date : Novembre 2022
 
 #include <netinet/in.h>
